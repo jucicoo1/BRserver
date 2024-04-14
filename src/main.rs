@@ -51,3 +51,17 @@ fn Home() -> Element {
         }
     }
 }
+
+
+#[component]
+fn radar() -> Element {
+    rsx! {
+        Link {
+            to: Route::Home {},
+            "Go to Home"
+        }
+        div {
+            h1 {"this is going to be radar page"}
+        }
+    }
+}
