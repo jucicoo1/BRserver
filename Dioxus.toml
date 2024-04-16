@@ -34,7 +34,9 @@ watch_path = ["src", "assets"]
 style = []
 
 # Javascript code file
-script = []
+script = [
+    './assets/dioxus/radar.js'
+]
 
 [web.resource.dev]
 

@@ -9,6 +9,8 @@ enum Route {
     Home {},
     #[route("/blog/:id")]
     Blog { id: i32 },
+    #[route("/radar/")]
+    Radar {},
 }
 
 fn main() {
@@ -44,6 +46,10 @@ fn Home() -> Element {
             },
             "Go to blog"
         }
+        Link {
+            to: Route::Radar {},
+            "Go to radar"
+        }
         div {
             h1 { "High-Five counter: {count}" }
             button { onclick: move |_| count += 1, "Up high!" }
@@ -54,7 +60,7 @@ fn Home() -> Element {
 
 
 #[component]
-fn radar() -> Element {
+fn Radar() -> Element {
     rsx! {
         Link {
             to: Route::Home {},
