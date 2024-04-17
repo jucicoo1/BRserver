@@ -31,11 +31,13 @@ watch_path = ["src", "assets"]
 
 # CSS style file
 
-style = []
+style = [
+    '/./assets/css/common.css',
+]
 
 # Javascript code file
 script = [
-    './assets/dioxus/radar.js'
+    '/./assets/js/radar.js',
 ]
 
 [web.resource.dev]

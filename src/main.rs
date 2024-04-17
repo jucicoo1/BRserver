@@ -37,23 +37,68 @@ fn Blog(id: i32) -> Element {
 
 #[component]
 fn Home() -> Element {
-    let mut count = use_signal(|| 0);
-
+    // let mut count = use_signal(|| 0);
     rsx! {
-        Link {
-            to: Route::Blog {
-                id: count()
-            },
-            "Go to blog"
-        }
-        Link {
-            to: Route::Radar {},
-            "Go to radar"
-        }
         div {
-            h1 { "High-Five counter: {count}" }
-            button { onclick: move |_| count += 1, "Up high!" }
-            button { onclick: move |_| count -= 1, "Down low!" }
+            id: "PAGE-CONTAINER",
+            div {
+                class: "topnav",
+                id: "myTopnav",
+                a {
+                    class: "active",
+                    href: "#home",
+                    "Home"
+                }
+                a {
+                    href: "#blog",
+                    "Blog"
+                }
+                a {
+                    href: "#Radar",
+                    "Radar"
+                }
+                a {
+                    class: "icon",
+                    href: "javascript:void(0);",
+                    "Radar",
+                    i{
+                        class: "fa fa-bars",
+                    }
+                }
+            }
+            div {
+                id: "home-background",
+                div {
+                    class: "middle-content",
+                    // div {
+                    //     class: "middle-left-content",
+                    // }
+                    // div {
+                    //     class: "middle-right-content",
+                        
+                    // }
+                    h1 { 
+                        class: "home_h1",
+                        "In the grim darkness"
+                    }
+                    h1 { 
+                        class: "home_h1",
+                        "of the far future,"
+                    }
+                    h1 { 
+                        class: "home_h1",
+                        "there is only war"
+                    }
+                    button {
+                        id: "to_battle",
+                        "Report Your Battle!"
+                    }
+                    button {
+                        id: "to_enroll",
+                        "Enroll Your Army!"
+                    }
+                }
+            }
         }
     }
 }
