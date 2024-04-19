@@ -107,12 +107,63 @@ fn Home() -> Element {
 #[component]
 fn Radar() -> Element {
     rsx! {
-        Link {
-            to: Route::Home {},
-            "Go to Home"
+        div {
+            class: "topnav",
+            id: "myTopnav",
+            a {
+                class: "active",
+                href: "#home",
+                "Home"
+            }
+            a {
+                href: "#blog",
+                "Blog"
+            }
+            a {
+                href: "#Radar",
+                "Radar"
+            }
+            a {
+                class: "icon",
+                href: "javascript:void(0);",
+                "Radar",
+                i{
+                    class: "fa fa-bars",
+                }
+            }
         }
         div {
             h1 {"this is going to be radar page"}
+        }
+    }
+}
+
+fn menu_bar() -> Element {
+    rsx! {
+        div {
+            class: "topnav",
+            id: "myTopnav",
+            a {
+                class: "active",
+                href: "#home",
+                "Home"
+            }
+            a {
+                href: "#blog",
+                "Blog"
+            }
+            a {
+                href: "#Radar",
+                "Radar"
+            }
+            a {
+                class: "icon",
+                href: "javascript:void(0);",
+                "Radar",
+                i{
+                    class: "fa fa-bars",
+                }
+            }
         }
     }
 }
