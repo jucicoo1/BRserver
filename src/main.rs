@@ -106,6 +106,7 @@ fn Home() -> Element {
 
 #[component]
 fn Radar() -> Element {
+    menu_bar();
     rsx! {
         div {
             class: "topnav",
