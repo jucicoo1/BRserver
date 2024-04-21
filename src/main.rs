@@ -2,6 +2,7 @@
 
 use dioxus::prelude::*;
 use log::LevelFilter;
+use wasm_bindgen::prelude::*;
 
 #[derive(Clone, Routable, Debug, PartialEq)]
 enum Route {
@@ -129,7 +130,7 @@ fn Radar() -> Element {
                 href: "javascript:void(0);",
                 onclick: move |_| {
                     // Call the existing JavaScript function
-                    js!("myExistingJavaScriptFunction()");
+                    myExistingJavaScriptFunction();
                 },
                 "Radar",
                 i{
