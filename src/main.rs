@@ -42,42 +42,11 @@ fn Home() -> Element {
     rsx! {
         div {
             id: "PAGE-CONTAINER",
-            div {
-                class: "topnav",
-                id: "myTopnav",
-                a {
-                    class: "active",
-                    href: "#home",
-                    "Home"
-                }
-                a {
-                    href: "#blog",
-                    "Blog"
-                }
-                a {
-                    href: "#Radar",
-                    "Radar"
-                }
-                a {
-                    class: "icon",
-                    href: "javascript:void(0);",
-                    "Radar",
-                    i{
-                        class: "fa fa-bars",
-                    }
-                }
-            }
+            menu_bar {},
             div {
                 id: "home-background",
                 div {
                     class: "middle-content",
-                    // div {
-                    //     class: "middle-left-content",
-                    // }
-                    // div {
-                    //     class: "middle-right-content",
-                        
-                    // }
                     h1 { 
                         class: "home_h1",
                         "In the grim darkness"
@@ -107,43 +76,15 @@ fn Home() -> Element {
 
 #[component]
 fn Radar() -> Element {
-    menu_bar();
     rsx! {
-        div {
-            class: "topnav",
-            id: "myTopnav",
-            a {
-                class: "active",
-                href: "#home",
-                "Home"
-            }
-            a {
-                href: "#blog",
-                "Blog"
-            }
-            a {
-                href: "#Radar",
-                "Radar"
-            }
-            a {
-                class: "icon",
-                href: "javascript:void(0);",
-                onclick: move |_| {
-                    // Call the existing JavaScript function
-                    myExistingJavaScriptFunction();
-                },
-                "Radar",
-                i{
-                    class: "fa fa-bars",
-                }
-            }
-        }
+        menu_bar {},
         div {
             h1 {"this is going to be radar page"}
         }
     }
 }
 
+#[component]
 fn menu_bar() -> Element {
     rsx! {
         div {
@@ -151,7 +92,7 @@ fn menu_bar() -> Element {
             id: "myTopnav",
             a {
                 class: "active",
-                href: "#home",
+                href: "/",
                 "Home"
             }
             a {
@@ -159,7 +100,7 @@ fn menu_bar() -> Element {
                 "Blog"
             }
             a {
-                href: "#Radar",
+                href: "/radar/",
                 "Radar"
             }
             a {
@@ -167,9 +108,9 @@ fn menu_bar() -> Element {
                 href: "javascript:void(0);",
                 onclick: move |_| {
                     // Call the JavaScript function through the binding
-                    myExistingJavaScriptFunction();
+                    call_test();
                 },
-                "Radar",
+                "Icon",
                 i{
                     class: "fa fa-bars",
                 }
@@ -181,5 +122,5 @@ fn menu_bar() -> Element {
 #[wasm_bindgen]
 extern "C" {
     #[wasm_bindgen(js_namespace = window)]
-    fn myExistingJavaScriptFunction();
+    fn call_test();
 }
