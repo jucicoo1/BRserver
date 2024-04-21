@@ -127,6 +127,10 @@ fn Radar() -> Element {
             a {
                 class: "icon",
                 href: "javascript:void(0);",
+                onclick: move |_| {
+                    // Call the existing JavaScript function
+                    js!("myExistingJavaScriptFunction()");
+                },
                 "Radar",
                 i{
                     class: "fa fa-bars",
@@ -160,6 +164,10 @@ fn menu_bar() -> Element {
             a {
                 class: "icon",
                 href: "javascript:void(0);",
+                onclick: move |_| {
+                    // Call the JavaScript function through the binding
+                    myExistingJavaScriptFunction();
+                },
                 "Radar",
                 i{
                     class: "fa fa-bars",
@@ -167,4 +175,10 @@ fn menu_bar() -> Element {
             }
         }
     }
+}
+
+#[wasm_bindgen]
+extern "C" {
+    #[wasm_bindgen(js_namespace = window)]
+    fn myExistingJavaScriptFunction();
 }
