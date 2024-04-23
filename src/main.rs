@@ -8,10 +8,14 @@ use wasm_bindgen::prelude::*;
 enum Route {
     #[route("/")]
     Home {},
-    #[route("/blog/:id")]
-    Blog { id: i32 },
-    #[route("/radar/")]
-    Radar {},
+    #[route("/battle/")]
+    BattleList {},
+    #[route("/battle/new")]
+    BattleNew {},
+    #[route("/battle/edit/:id")]
+    BattleEdit { id: i32 },
+    #[route("/radar/:id")]
+    Radar { id: i32 },
 }
 
 fn main() {
@@ -25,14 +29,6 @@ fn main() {
 fn App() -> Element {
     rsx! {
         Router::<Route> {}
-    }
-}
-
-#[component]
-fn Blog(id: i32) -> Element {
-    rsx! {
-        Link { to: Route::Home {}, "Go to counter" }
-        "Blog post {id}"
     }
 }
 
@@ -75,7 +71,37 @@ fn Home() -> Element {
 
 
 #[component]
-fn Radar() -> Element {
+fn BattleList() -> Element {
+    rsx! {
+        menu_bar {},
+        div {
+            h1 {"this is going to be battle list page"}
+        }
+    }
+}
+
+#[component]
+fn BattleNew() -> Element {
+    rsx! {
+        menu_bar {},
+        div {
+            h1 {"this is going to be battle new page"}
+        }
+    }
+}
+
+#[component]
+fn BattleEdit(id: i32) -> Element {
+    rsx! {
+        menu_bar {},
+        div {
+            h1 {"this is going to be battle edit page"}
+        }
+    }
+}
+
+#[component]
+fn Radar(id: i32) -> Element {
     rsx! {
         menu_bar {},
         div {
