@@ -75,7 +75,33 @@ fn BattleList() -> Element {
     rsx! {
         menu_bar {},
         div {
+            id: "PAGE-CONTAINER",
             h1 {"this is going to be battle list page"}
+            button {
+                id: "new_button",
+            }
+            div {
+                class: "battle_list_container",
+                h2 {
+                    class: "battle_list",
+                    " Faction 1 vs Faction 2"
+                }
+                h2 {
+                    class: "battle_list",
+                    " Faction 1 vs Faction 2"
+                }
+                Link {
+                    to: Route::BattleEdit { id: 123 },
+                    "Faction 1 vs Faction 2"
+                }
+                Link {
+                    to: Route::BattleEdit { id: 123 },
+                    h2 {
+                        class: "battle_list",
+                        " Faction 1 vs Faction 2"
+                    }
+                }
+            }
         }
     }
 }
@@ -85,7 +111,27 @@ fn BattleNew() -> Element {
     rsx! {
         menu_bar {},
         div {
+            id: "PAGE-CONTAINER",
             h1 {"this is going to be battle new page"}
+            div {
+                class: "battle_report",
+                form { onsubmit: move |event| { log::info!("Submitted! {event:?}") },
+                    div {
+                        class: "battle_report_factions",
+                        select {
+                            id: "faction_select_1"
+                        }
+                        select {
+                            id: "faction_select_1"
+                        }
+                    }
+                    input { name: "title" }
+                    input { name: "deployment" }
+                    input { name: "primary mission" }
+                    input { name: "mission rule" }
+                    input { r#type: "submit" }
+                }
+            }
         }
     }
 }
@@ -122,8 +168,8 @@ fn menu_bar() -> Element {
                 "Home"
             }
             a {
-                href: "#blog",
-                "Blog"
+                href: "/battle/",
+                "Battle"
             }
             a {
                 href: "/radar/",
