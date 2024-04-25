@@ -10,12 +10,13 @@ enum Route {
     Home {},
     #[route("/battle/")]
     BattleList {},
-    #[route("/battle/new")]
-    BattleNew {},
-    #[route("/battle/edit/:id")]
-    BattleEdit { id: i32 },
-    #[route("/radar/:id")]
-    Radar { id: i32 },
+        #[route("/battle/new")]
+        BattleNew {},
+        #[route("/battle/edit/:id")]
+        BattleEdit { id: i32 },
+        #[route("/radar/:id")]
+        Radar { id: i32 },
+    // other pages to add
 }
 
 fn main() {
@@ -76,29 +77,31 @@ fn BattleList() -> Element {
         menu_bar {},
         div {
             id: "PAGE-CONTAINER",
-            h1 {"this is going to be battle list page"}
-            button {
-                id: "new_button",
-            }
             div {
                 class: "battle_list_container",
-                h2 {
-                    class: "battle_list",
-                    " Faction 1 vs Faction 2"
-                }
-                h2 {
-                    class: "battle_list",
-                    " Faction 1 vs Faction 2"
-                }
-                Link {
-                    to: Route::BattleEdit { id: 123 },
-                    "Faction 1 vs Faction 2"
+                button {
+                    class: "new_button",
+                    "Report New battle"
                 }
                 Link {
                     to: Route::BattleEdit { id: 123 },
                     h2 {
                         class: "battle_list",
                         " Faction 1 vs Faction 2"
+                    }
+                }
+                Link {
+                    to: Route::BattleEdit { id: 121 },
+                    h2 {
+                        class: "battle_list",
+                        " Faction 3 vs Faction 2"
+                    }
+                }
+                Link {
+                    to: Route::BattleEdit { id: 225 },
+                    h2 {
+                        class: "battle_list",
+                        " Faction 7 vs Faction 9"
                     }
                 }
             }
@@ -155,6 +158,7 @@ fn Radar(id: i32) -> Element {
         }
     }
 }
+
 
 #[component]
 fn menu_bar() -> Element {
