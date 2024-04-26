@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>brserver</title>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/./assets/css/common.css">
+
+</head>
+<body>
+  <div id="main"></div>
+  <script type="module">
+    import init from "/BRserver/assets/dioxus/brserver.js";
+    init("/BRserver/assets/dioxus/brserver_bg.wasm").then(wasm => {
+      if (wasm.__wbindgen_start == undefined) {
+        wasm.main();
+      }
+    });
+  </script>
+  <script src="/./assets/js/radar.js"></script>
+
+</body>
+</html>
