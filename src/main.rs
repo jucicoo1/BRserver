@@ -128,10 +128,22 @@ fn BattleNew() -> Element {
                             id: "faction_select_1"
                         }
                     }
-                    input { name: "title" }
-                    input { name: "deployment" }
-                    input { name: "primary mission" }
-                    input { name: "mission rule" }
+                    input { 
+                        id: "battle_title",
+                        name: "title" 
+                    }
+                    input {
+                        id: "deployment",
+                        name: "deployment" 
+                    }
+                    input { 
+                        id: "primary_mission",
+                        name: "primary mission" 
+                    }
+                    input { 
+                        id: "mission_rule",
+                        name: "mission rule" 
+                    }
                     input { r#type: "submit" }
                 }
             }
